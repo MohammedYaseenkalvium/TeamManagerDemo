@@ -5,28 +5,28 @@ const bcrypt = require("bcryptjs");
 //@desc Get all users(admin Only)
 //@route Get /api/users
 //@access Private(Admin)
-
-const getUsers = async(req,res)=>{
+const getUsers  = async(req,res)=>{
     try{
         const users = await User.find({role:'member'}).select("-password");
 
-        // Add task to each user
-        const usersWithTaskCounts = await Promise.all(user.map(async(user)=>{
+        //Add task counts to each user
+        const usersWithTaskCounts = await Promise.all(users.map(async(user)=>{
             const pendingTasks = await Task.countDocuments({asssignedTo:user._id,status:"Pending"});
-            const inProgressTasks = await Task.countDocuments({asssignedTo:user._id,status:"In Progress"});
-            const completedTasks = await Task.countDocuments({asssignedTo:user._id,status:"Completed"});
-            
+            const inProgressTasks = await Task.countDocuments({asssignedTo:user._is,status:"In Progress"});
+            const completeTaks = await Task.countDocuments({asssignedTo:user._id,status:"Completed"});
+
             return{
-                ...user._doc,
+                ...user._doc, //Include all existing user data
                 pendingTasks,
                 inProgressTasks,
-                completedTasks,
-            } ;
+                completeTaks
+
+            };
         }));
+
         res.json(usersWithTaskCounts);
     }catch(error){
-        res.status(500).json({message:"Servor error",error:error.message});
-
+        res.status(500).json({message:"Server error",error:error.message});
     }
 };
 

@@ -1,9 +1,19 @@
-import React from 'react'
+// import React, { useState } from 'react'
+// import AuthLayout from '../../components/layouts/AuthLayouts'
 
-const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+// const Login = () => {
+//   const [email,setEmail] = useState("");
+//   const [password,setPassword] = useState("");
+//   const [error,setError] = useState(null);
 
-export default Login
+//   const navigate = useNavigate();
+
+//   //
+//   return (
+//     <AuthLayout>
+
+//     </AuthLayout>
+//   )
+// }
+
+// export default Login
