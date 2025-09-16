@@ -19,14 +19,13 @@ const toggleShowPassword = ()=>{
                 onChange={(e)=> onChange(e)}
             />
 
-            {type=="password" && (
+            {type==="password" && (
                 <>
                     {showPassword ?(
                         <FaRegEye
                             size={22}
                             className='text-primary cursor-pointer'
-                            onClick={()=>toggleShowPassword()
-                    }
+                            onClick={()=>toggleShowPassword()}
                 />
             ):(
                 <FaRegEyeSlash
