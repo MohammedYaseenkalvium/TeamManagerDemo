@@ -28,6 +28,11 @@ const Login = () => {
     setError("");
 
     //Login API call
+    try{
+
+    }catch(error){
+      
+    }
 
 
   }
@@ -60,7 +65,7 @@ const Login = () => {
           <button type='submit' className='btn-primary'>LOG-IN</button>
           <p className='text-[13px] text-slate-800 mt-3'>
             Don't have an account?{" "}
-            <Link className="font-medium text-primary underline" to="/signup">
+            <Link className="font-medium text-primary underline" to="/signUp">
               SignUp
             </Link>
           </p>
